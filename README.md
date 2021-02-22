@@ -1,1 +1,3 @@
-# calculator
+# Calculator
+
+It calculates numbers.
