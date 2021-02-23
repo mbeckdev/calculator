@@ -24,37 +24,64 @@
   /* justify-items: stretch;  end */
   /* align-items: center or end default is stretch */
   /* on each one  align-self: start end... */
-  border: 1px solid orange;
-  height: 200px;
+  /* border: 1px solid orange; */
+  height: 250px;
   width: 200px;
 
   margin: 0 auto;
+  margin-top: 20px;
+
   /* justify-items: center; */
-  gap: 0.1em;
+  gap: 0.1rem;
+
+  padding: 10px;
+  background-color: rgb(70, 70, 70);
+  background-color: rgb(90, 90, 90);
+  box-shadow: 1px 1px 0 black;
+}
+#calculator > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #battery {
   grid-area: battery;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: orange;
+}
+h1 {
+  font-size: 1em;
+  /* background-color: orange; */
 }
 .btn {
   background-color: yellow;
   /* padding: 1em; */
+  border-radius: 3px;
+  box-shadow: 1px 1px 0px black;
 }
 #equals {
   grid-area: equals;
-  background-color: purple;
+  /* background-color: purple; */
 }
 #header {
   grid-area: header;
-  border: 1px solid red;
-  background-color: green;
-  justify-self: start;
+  box-shadow: none;
+  /* border: 1px solid red; */
+  /* background-color: green; */
+  /* justify-self: start; */
 }
 #screen {
   grid-area: screen;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: #9daa73;
+  margin: 10px 0;
+  /* border: 1px inset; */
+
+  border-radius: 1px;
+  border-right: 1px solid #d7e7d7;
+  border-bottom: 1px solid #d7e7d7;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
 }
 #clear {
   grid-area: clear;
@@ -109,8 +136,15 @@
 }
 
 .numbers {
-  background-color: lightblue;
+  background-color: #3e3c43;
+  color: white;
 }
 .operator {
-  background-color: lightgreen;
+  background-color: #d7d7d7;
+  color: black;
+}
+.other-btns {
+  /* background-color: rgb(41, 123, 229); */
+  background-color: rgb(91, 173, 279);
+  color: black;
 }
