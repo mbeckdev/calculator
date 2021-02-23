@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#calculator {
+  display: grid;
+  /* grid-template-columns: 50px 50px 50px 50px; */
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(4, 1fr 3fr); */
+  /* grid-auto-rows: 100px;  -the height*/
+  /* grid-auto-rows: minmax(100px, auto); --100px default or auto if bigger */
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header battery battery'
+    'screen screen screen screen'
+    'clear equals equals equals'
+    'seven eight nine divide'
+    'four five six multiply'
+    'one two three minus'
+    'plusminus zero dot plus';
+  /* column-gap: 1em; row-gap: 1em;   or grid-gap: 1em;*/
+  /* justify-items: stretch;  end */
+  /* align-items: center or end default is stretch */
+  /* on each one  align-self: start end... */
+  border: 1px solid orange;
+  height: 200px;
+  width: 200px;
+
+  margin: 0 auto;
+  /* justify-items: center; */
+  gap: 0.1em;
+}
+#battery {
+  grid-area: battery;
+  border: 1px solid red;
+  background-color: orange;
+}
+.btn {
+  background-color: yellow;
+  /* padding: 1em; */
+}
+#equals {
+  grid-area: equals;
+  background-color: purple;
+}
+#header {
+  grid-area: header;
+  border: 1px solid red;
+  background-color: green;
+  justify-self: start;
+}
+#screen {
+  grid-area: screen;
+  border: 1px solid red;
+  background-color: #9daa73;
+}
+#clear {
+  grid-area: clear;
+}
+#one {
+  grid-area: one;
+}
+#two {
+  grid-area: two;
+}
+#three {
+  grid-area: three;
+}
+#four {
+  grid-area: four;
+}
+#five {
+  grid-area: five;
+}
+#six {
+  grid-area: six;
+}
+#seven {
+  grid-area: seven;
+}
+#eight {
+  grid-area: eight;
+}
+#nine {
+  grid-area: nine;
+}
+#zero {
+  grid-area: zero;
+}
+#dot {
+  grid-area: dot;
+}
+#plusminus {
+  grid-area: plusminus;
+}
+#plus {
+  grid-area: plus;
+}
+#minus {
+  grid-area: minus;
+}
+#multiply {
+  grid-area: multiply;
+}
+#divide {
+  grid-area: divide;
+}
+
+.numbers {
+  background-color: lightblue;
+}
+.operator {
+  background-color: lightgreen;
+}
