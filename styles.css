@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  /* font-family: Georgia, sans-serif; */
+  font-family: 'Inconsolata', monospace;
+  /* font-family: 'Teko', sans-serif; */
+  font-size: 62.5%;
+  background-color: lightgrey;
+}
 #calculator {
   display: grid;
   /* grid-template-columns: 50px 50px 50px 50px; */
@@ -20,68 +27,85 @@
     'four five six multiply'
     'one two three minus'
     'plusminus zero dot plus';
-  /* column-gap: 1em; row-gap: 1em;   or grid-gap: 1em;*/
-  /* justify-items: stretch;  end */
-  /* align-items: center or end default is stretch */
-  /* on each one  align-self: start end... */
-  /* border: 1px solid orange; */
-  height: 250px;
+
   width: 200px;
 
   margin: 0 auto;
   margin-top: 20px;
 
-  /* justify-items: center; */
-  gap: 0.1rem;
+  gap: 2px;
 
   padding: 10px;
   background-color: rgb(70, 70, 70);
   background-color: rgb(90, 90, 90);
   box-shadow: 1px 1px 0 black;
+  border-radius: 3px;
+
+  font-size: 2.4em;
 }
 #calculator > div {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 #battery {
   grid-area: battery;
   /* border: 1px solid red; */
-  background-color: orange;
+  /* background-color: hsl(3, 28%, 16%); */
+  background: linear-gradient(100deg, hsl(3, 28%, 16%), hsl(3, 28%, 30%));
+  border-radius: 2px;
+  border-right: 1px solid hsl(250, 5%, 60%);
+  border-bottom: 1px solid hsl(250, 5%, 60%);
+  border-left: 2px solid hsl(250, 5%, 15%);
+  border-top: 2px solid hsl(250, 5%, 15%);
 }
-h1 {
-  font-size: 1em;
-  /* background-color: orange; */
-}
-.btn {
-  background-color: yellow;
-  /* padding: 1em; */
-  border-radius: 3px;
-  box-shadow: 1px 1px 0px black;
-}
+
 #equals {
   grid-area: equals;
-  /* background-color: purple; */
 }
 #header {
   grid-area: header;
   box-shadow: none;
+  /* border: 1px solid orange; */
+  /* height: 0.5rem; */
+
+  font-family: 'Teko', sans-serif;
+  /* font-family: sans-serif; */
+  font-size: 0.5em;
+
+  /* display: flexbox;
+  align-items: center;
+  justify-items: center;
+  align-content: flex-end; */
+
+  /* height: 100px;
+  margin-top: -5px; */
+
+  color: rgb(215, 215, 215);
+  text-shadow: -1px -1px 1px black, 1px 1px 1px black;
+}
+h1 {
   /* border: 1px solid red; */
-  /* background-color: green; */
-  /* justify-self: start; */
+  margin-top: -6px;
+  margin-bottom: -8px;
+  /* position: absolute; */
 }
 #screen {
   grid-area: screen;
-  /* border: 1px solid red; */
   background-color: #9daa73;
   margin: 10px 0;
-  /* border: 1px inset; */
+  padding: 0 0.4rem;
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: center;
+  /* align-items: flex-end;
+  justify-items: flex-end;
+  justify-content: flex-end; */
 
   border-radius: 1px;
-  border-right: 1px solid #d7e7d7;
-  border-bottom: 1px solid #d7e7d7;
-  border-left: 1px solid black;
-  border-top: 1px solid black;
+  border-right: 1px solid hsl(250, 5%, 80%); /*#d7e7d7*/
+  border-bottom: 1px solid hsl(250, 5%, 80%);
+  border-left: 1px solid hsl(250, 5%, 15%);
+  border-top: 1px solid hsl(250, 5%, 15%);
 }
 #clear {
   grid-area: clear;
@@ -135,16 +159,80 @@ h1 {
   grid-area: divide;
 }
 
+.btn {
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  /* padding: 1em; */
+  border-radius: 3px;
+  /* box-shadow: -1px -1px 0px hsl(257, 6%, 55%), 1px 1px 0px black; */
+  box-shadow: -1px -1px 0px rgba(255, 255, 255, 30%), 1px 1px 0px black;
+}
+.btn:active {
+  box-shadow: none;
+}
+.btn:hover {
+}
+.clear-btn {
+  background-color: rgb(91, 173, 255);
+  box-shadow: -1px -1px 0px rgba(255, 255, 255, 60%), 1px 1px 0px black;
+}
 .numbers {
-  background-color: #3e3c43;
+  background-color: #3e3c43; /*hsl(257,6%,25%)*/
   color: white;
 }
 .operator {
   background-color: #d7d7d7;
   color: black;
+  box-shadow: -1px -1px 0px rgba(255, 255, 255, 85%), 1px 1px 0px black;
 }
 .other-btns {
   /* background-color: rgb(41, 123, 229); */
-  background-color: rgb(91, 173, 279);
-  color: black;
+  background-color: hsl(257, 6%, 40%); /*279*/
+  color: white;
+}
+
+@media screen and (min-width: 350px) and (min-height: 325px) and (orientation: landscape) {
+  body {
+    background-color: red;
+  }
+  #calculator {
+    /* width: 300px;
+    height: 350px; */
+    width: 80vh;
+    height: 80vh;
+  }
+  #header {
+    /* font-size: 0.8em; */
+    font-size: 5vh;
+    /* font-family: monospace; */
+  }
+  #screen {
+    font-size: 1.4em;
+  }
+  #battery {
+    height: 10vh;
+  }
+}
+/* larger than 350px */
+@media screen and (min-width: 350px) and (orientation: portrait) {
+  body {
+    background-color: blue;
+  }
+  #calculator {
+    /* width: 300px;
+    height: 350px; */
+    width: 80vw;
+    height: 80vw;
+  }
+  #header {
+    /* font-size: 0.8em; */
+    font-size: 5vw;
+  }
+  #screen {
+    font-size: 1.4em;
+  }
+  #battery {
+    height: 10vw;
+  }
 }
