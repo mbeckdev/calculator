@@ -26,6 +26,8 @@ function operate(num1, operator, num2) {
     case "/":
       return divide(num1, num2);
     // break;
+    case "=":
+      return runningTotal;
   }
 }
 console.log(add(1, 2.1));
@@ -54,6 +56,7 @@ function addInitialEventListeners() {
   });
 
   document.getElementById("clear").addEventListener("click", clearDisplay);
+  document.getElementById("plusminus").addEventListener("click", toggleSign);
 }
 addInitialEventListeners();
 
@@ -67,60 +70,58 @@ function populateDisplay(e) {
   display.textContent = displayNumber;
 }
 
-let lastOperator = ""; //to hold +-*/ for later
-let firstNumber = 0;
+let lastOperator = "+"; //to hold +-*/ for later
+let runningTotal = 0; //
+
 let secondNumber = 0;
+
 function clickOperator(e) {
   console.log(e.target);
+  runningTotal = operate(
+    Number(runningTotal),
+    lastOperator,
+    Number(displayNumber)
+  );
   switch (e.target.textContent) {
     case "+":
-      firstNumber = displayNumber;
       lastOperator = "+";
-      displayNumber = "";
       console.log("+");
       break;
     case "-":
-      firstNumber = displayNumber;
       lastOperator = "-";
-      displayNumber = "";
       console.log("-");
       break;
     case "*":
-      firstNumber = displayNumber;
       lastOperator = "*";
-      displayNumber = "";
       break;
     case "/":
-      firstNumber = displayNumber;
       lastOperator = "/";
-      displayNumber = "";
       break;
     case "=":
       //remember what we did befreo like click + or -
       //then call add() or subtact()
-      secondNumber = displayNumber;
-      let result = "";
-      switch (lastOperator) {
-        case "+":
-          displayNumber = add(Number(firstNumber), Number(secondNumber));
-          break;
-        case "-":
-          displayNumber = subtract(Number(firstNumber), Number(secondNumber));
-          break;
-        case "*":
-          displayNumber = multiply(Number(firstNumber), Number(secondNumber));
-          break;
-        case "/":
-          displayNumber = divide(Number(firstNumber), Number(secondNumber));
-          break;
-      }
-      display.textContent = displayNumber;
+
+      //   firstNumber = displayNumber;
+      //   lastOperator = "/";
+
+      display.textContent = runningTotal;
+      //   display.textContent = displayNumber;
+      lastOperator = "=";
       break;
   }
+  displayNumber = "";
 }
 
 function clearDisplay(e) {
   displayNumber = "";
   //   display.textContent = displayNumber;
-  document.getElementById("inner-screen").textContent = displayNumber;
+  //   document.getElementById("inner-screen").textContent = displayNumber;
+  display.textContent = displayNumber;
+  runningTotal = 0;
+  lastOperator = "+";
+}
+
+function toggleSign(e) {
+  displayNumber = Number(displayNumber) * -1;
+  display.textContent = displayNumber;
 }
