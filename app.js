@@ -52,6 +52,8 @@ function addInitialEventListeners() {
   operators.forEach((e) => {
     e.addEventListener("click", clickOperator);
   });
+
+  document.getElementById("clear").addEventListener("click", clearDisplay);
 }
 addInitialEventListeners();
 
@@ -115,4 +117,9 @@ function clickOperator(e) {
       display.textContent = displayNumber;
       break;
   }
+}
+
+function clearDisplay(e) {
+  displayNumber = "";
+  display.textContent = displayNumber;
 }
