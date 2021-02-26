@@ -11,6 +11,12 @@ body {
   font-size: 62.5%;
   background-color: lightgrey;
 }
+h1 {
+  /* border: 1px solid red; */
+  margin-top: -6px;
+  margin-bottom: -8px;
+  /* position: absolute; */
+}
 #calculator {
   display: grid;
   /* grid-template-columns: 50px 50px 50px 50px; */
@@ -82,12 +88,7 @@ body {
   color: rgb(215, 215, 215);
   text-shadow: -1px -1px 1px black, 1px 1px 1px black;
 }
-h1 {
-  /* border: 1px solid red; */
-  margin-top: -6px;
-  margin-bottom: -8px;
-  /* position: absolute; */
-}
+
 #screen {
   grid-area: screen;
   background-color: #9daa73;
@@ -172,6 +173,7 @@ h1 {
   box-shadow: none;
 }
 .btn:hover {
+  cursor: pointer;
 }
 .clear-btn {
   background-color: rgb(91, 173, 255);
