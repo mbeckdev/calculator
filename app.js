@@ -3,15 +3,19 @@
 function add(a, b) {
   return a + b;
 }
+
 function subtract(a, b) {
   return a - b;
 }
+
 function multiply(a, b) {
   return a * b;
 }
+
 function divide(a, b) {
   return a / b;
 }
+
 function operate(num1, operator, num2) {
   switch (operator) {
     case "+":
@@ -44,13 +48,15 @@ console.log(operate(9.3, "/", 3));
 
 function addInitialEventListeners() {
   let numbers = Array.from(document.querySelectorAll(".numbers"));
+
   numbers.forEach((e) => {
     // console.log(e);
-    e.addEventListener("click", populateDisplay);
+    e.addEventListener("click", addNumbersToScreen);
   });
-  document.getElementById("dot").addEventListener("click", populateDisplay);
-  // console.log(numbers);
+
+  document.getElementById("dot").addEventListener("click", addNumbersToScreen);
   let operators = Array.from(document.querySelectorAll(".operator"));
+
   operators.forEach((e) => {
     e.addEventListener("click", clickOperator);
   });
@@ -63,16 +69,16 @@ addInitialEventListeners();
 const display = document.getElementById("inner-screen");
 let displayNumber = "";
 
-function populateDisplay(e) {
+function addNumbersToScreen(e) {
   displayNumber = displayNumber + e.target.textContent;
-
-  console.log(displayNumber); //is a string
-  display.textContent = displayNumber;
+  populateDisplay();
+}
+function populateDisplay() {
+  display.textContent = displayNumber; //  displayNumber is a string
 }
 
 let lastOperator = "+"; //to hold +-*/ for later
 let runningTotal = 0; //
-
 let secondNumber = 0;
 
 function clickOperator(e) {
@@ -101,11 +107,7 @@ function clickOperator(e) {
       //remember what we did befreo like click + or -
       //then call add() or subtact()
 
-      //   firstNumber = displayNumber;
-      //   lastOperator = "/";
-
       display.textContent = runningTotal;
-      //   display.textContent = displayNumber;
       lastOperator = "=";
       break;
   }
@@ -114,14 +116,17 @@ function clickOperator(e) {
 
 function clearDisplay(e) {
   displayNumber = "";
-  //   display.textContent = displayNumber;
-  //   document.getElementById("inner-screen").textContent = displayNumber;
-  display.textContent = displayNumber;
+  populateDisplay();
   runningTotal = 0;
   lastOperator = "+";
 }
 
 function toggleSign(e) {
   displayNumber = Number(displayNumber) * -1;
-  display.textContent = displayNumber;
+  populateDisplay();
 }
+
+//
+//
+//
+// Things to do: make buttons darker on hover.
