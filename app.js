@@ -40,24 +40,29 @@ console.log(operate(9.3, '/', 3));
 // Functions that populate teh display when you clik the number buttons
 // loop through all that have a class of 'number' and add event listener
 
-function addNumberEventListeners() {
+function addInitialEventListeners() {
     let numbers = Array.from(document.querySelectorAll('.numbers'));
     numbers.forEach((e) => {
         // console.log(e);
         e.addEventListener('click', populateDisplay);
-
     });
+    document.getElementById('dot').addEventListener('click',populateDisplay);
     // console.log(numbers);
+    let operators = Array.from(document.querySelectorAll('operator'));
+    // operators.forEach((e) => {
+    //     e.addEventListener()
+    // });
 }
-addNumberEventListeners();
+addInitialEventListeners();
 
 const display = document.getElementById('screen');
-let displayNumber = 0;
+let displayNumber = '';
+
 function populateDisplay(e) {
-    console.log(e);
-    console.log(e.target);
+    // console.log(e);
+    // console.log(e.target);
     // console.log(e.target.getAttribute('id'));
-    console.log(e.target.textContent);
+    // console.log(e.target.textContent);
 
     displayNumber = displayNumber + e.target.textContent;
     
