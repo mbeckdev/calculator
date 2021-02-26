@@ -6,7 +6,7 @@
 
 body {
   /* font-family: Georgia, sans-serif; */
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
   /* font-family: 'Teko', sans-serif; */
   font-size: 62.5%;
   background-color: lightgrey;
@@ -26,13 +26,13 @@ h1 {
   /* grid-auto-rows: minmax(100px, auto); --100px default or auto if bigger */
   grid-template-rows: auto;
   grid-template-areas:
-    'header header battery battery'
-    'screen screen screen screen'
-    'clear equals equals equals'
-    'seven eight nine divide'
-    'four five six multiply'
-    'one two three minus'
-    'plusminus zero dot plus';
+    "header header battery battery"
+    "screen screen screen screen"
+    "clear equals equals equals"
+    "seven eight nine divide"
+    "four five six multiply"
+    "one two three minus"
+    "plusminus zero dot plus";
 
   width: 200px;
 
@@ -73,7 +73,7 @@ h1 {
   /* border: 1px solid orange; */
   /* height: 0.5rem; */
 
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
   /* font-family: sans-serif; */
   font-size: 0.5em;
 
@@ -193,6 +193,11 @@ h1 {
   background-color: hsl(257, 6%, 40%); /*279*/
   color: white;
 }
+#inner-screen {
+  /* border: 1px solid red; */
+  height: 28px;
+  /* margin-top: -10px; */
+}
 
 @media screen and (min-width: 350px) and (min-height: 325px) and (orientation: landscape) {
   body {
@@ -208,11 +213,17 @@ h1 {
   }
   #header {
     /* font-size: 0.8em; */
-    font-size: 1.0rem;
+    font-size: 1rem;
     /* font-family: monospace; */
   }
   #screen {
     font-size: 1.4em;
+  }
+  #inner-screen {
+    /* border: 1px solid red; */
+    /* height: auto; */
+    height: 35px;
+    /* margin-top: -10px; */
   }
   #battery {
     height: 30px;
@@ -222,7 +233,7 @@ h1 {
 @media screen and (min-width: 350px) and (orientation: portrait) {
   body {
     background-color: blue;
-    font-size: .8em;
+    font-size: 0.8em;
   }
   h1 {
     margin-top: -11px;
@@ -241,6 +252,12 @@ h1 {
   }
   #screen {
     font-size: 1.4em;
+  }
+  #inner-screen {
+    /* border: 1px solid red; */
+    /* height: auto; */
+    height: 40px;
+    margin-top: -2px;
   }
   #battery {
     height: 30px;
@@ -272,14 +289,18 @@ h1 {
   }
   #screen {
     font-size: 1.4em;
-    
+    /* height: 85px; */
+  }
+  #inner-screen {
+    /* border: 1px solid red; */
+    height: auto;
+    height: 55px;
+    margin-top: -10px;
   }
   #battery {
     height: 40px;
   }
-  
 }
-
 
 @media screen and (min-width: 350px) and (min-height: 500px) and (orientation: landscape) {
   body {
@@ -307,10 +328,14 @@ h1 {
   }
   #screen {
     font-size: 1.4em;
-    
+  }
+  #inner-screen {
+    /* border: 1px solid red; */
+    height: auto;
+    height: 55px;
+    margin-top: -10px;
   }
   #battery {
     height: 40px;
   }
-  
 }

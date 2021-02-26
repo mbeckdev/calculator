@@ -57,7 +57,7 @@ function addInitialEventListeners() {
 }
 addInitialEventListeners();
 
-const display = document.getElementById("screen");
+const display = document.getElementById("inner-screen");
 let displayNumber = "";
 
 function populateDisplay(e) {
@@ -121,5 +121,6 @@ function clickOperator(e) {
 
 function clearDisplay(e) {
   displayNumber = "";
-  display.textContent = displayNumber;
+  //   display.textContent = displayNumber;
+  document.getElementById("inner-screen").textContent = displayNumber;
 }
