@@ -159,10 +159,17 @@ function checkCharLength(number) {
       number = "TOO MANY #S ";
     } else if (decimalPlaces.length == 1) {
       let returnArray = [];
-      for (let j = 0; j < 12; j++) {
-        returnArray.push(theNum[j]);
-      }
-      number = returnArray.join("");
+      let numberToRound = Number(number);
+      // decimalPlaces[0] +1  -the character of the .
+      //  12 - .place     // 12-2 = 10
+      let decimalPlacesToRound = 12 - (decimalPlaces[0] + 1);
+      console.log(Number(numberToRound.toFixed(decimalPlacesToRound)));
+      number = Number(numberToRound.toFixed(decimalPlacesToRound));
+
+      // for (let j = 0; j < 12; j++) {
+      //   returnArray.push(theNum[j]);
+      // }
+      // number = returnArray.join("");
     } else if (decimalPlaces > 1) {
       number = "ERROR: NaN  ";
     }
