@@ -70,10 +70,19 @@ const display = document.getElementById("inner-screen");
 let displayNumber = "";
 
 function addNumbersToScreen(e) {
-  displayNumber = displayNumber + e.target.textContent;
+  console.log(displayNumber.length);
+  if (displayNumber.length < 12) {
+    displayNumber = displayNumber + e.target.textContent;
+  } else {
+    displayNumber = "TOO MANY #S ";
+  }
+  console.log(displayNumber.length);
   populateDisplay();
 }
 function populateDisplay() {
+  // if
+  // console.log(displayNumber.length);
+
   display.textContent = displayNumber; //  displayNumber is a string
 }
 
@@ -107,7 +116,7 @@ function clickOperator(e) {
       //remember what we did befreo like click + or -
       //then call add() or subtact()
 
-      display.textContent = runningTotal;
+      display.textContent = checkCharLength(runningTotal);
       lastOperator = "=";
       break;
   }
@@ -126,6 +135,44 @@ function toggleSign(e) {
   populateDisplay();
 }
 
+function checkCharLength(number) {
+  if (!(number.toString().length <= 12)) {
+    // check is it a large decimal? or a large number?
+
+    //if its a large number:  maybe return an e number....or just give an error: too many #s
+
+    // if it's a decimal:
+    // cut off the extra stuff on the right
+    let theNum = Array.from(number.toString().split(""));
+
+    // what's the length of the string?
+    let strLength = theNum.length;
+    // is there a decimal?
+    let decimalPlaces = [];
+    for (let i = 0; i < strLength; i++) {
+      if (theNum[i] == ".") {
+        decimalPlaces.push(i);
+      }
+    }
+
+    if (decimalPlaces == 0) {
+      number = "TOO MANY #S ";
+    } else if (decimalPlaces.length == 1) {
+      let returnArray = [];
+      for (let j = 0; j < 12; j++) {
+        returnArray.push(theNum[j]);
+      }
+      number = returnArray.join("");
+    } else if (decimalPlaces > 1) {
+      number = "ERROR: NaN  ";
+    }
+    console.log("yep");
+    //   if so: what's the array place of the decimal
+    //   does it still fit?
+    //     if so: chop off the decimals on the right and return a string
+  }
+  return number;
+}
 //
 //
 //
