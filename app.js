@@ -28,6 +28,9 @@ function operate(num1, operator, num2) {
       return multiply(num1, num2);
     // break;
     case "/":
+      if (num2 == 0) {
+        return "DIV/0 = BAD!";
+      }
       return divide(num1, num2);
     // break;
     case "=":
@@ -71,6 +74,14 @@ let displayNumber = "";
 
 function addNumbersToScreen(e) {
   console.log(displayNumber.length);
+  console.log(e.target.textContent == ".");
+  if (e.target.textContent == "." && firstDotEntered == false) {
+    firstDotEntered = true;
+    document
+      .getElementById("dot")
+      .removeEventListener("click", addNumbersToScreen);
+  }
+
   if (displayNumber.length < 12) {
     displayNumber = displayNumber + e.target.textContent;
   } else {
@@ -111,6 +122,7 @@ function clickOperator(e) {
       break;
     case "/":
       lastOperator = "/";
+
       break;
     case "=":
       //remember what we did befreo like click + or -
@@ -121,6 +133,7 @@ function clickOperator(e) {
       break;
   }
   displayNumber = "";
+  resetDot();
 }
 
 function clearDisplay(e) {
@@ -128,6 +141,7 @@ function clearDisplay(e) {
   populateDisplay();
   runningTotal = 0;
   lastOperator = "+";
+  resetDot();
 }
 
 function toggleSign(e) {
@@ -155,7 +169,7 @@ function checkCharLength(number) {
       }
     }
 
-    if (decimalPlaces == 0) {
+    if (decimalPlaces.length == 0) {
       number = "TOO MANY #S ";
     } else if (decimalPlaces.length == 1) {
       let returnArray = [];
@@ -180,7 +194,15 @@ function checkCharLength(number) {
   }
   return number;
 }
+
+let firstDotEntered = false;
+function resetDot() {
+  firstDotEntered = false;
+  document.getElementById("dot").addEventListener("click", addNumbersToScreen);
+}
 //
 //
 //
 // Things to do: make buttons darker on hover.
+// for large numbers, 1e+24
+// for small numbers, 1e-24
