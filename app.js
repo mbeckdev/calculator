@@ -154,7 +154,10 @@ function checkCharLength(number) {
     }
 
     if (decimalPlaces.length == 0) {
-      number = "TOO MANY #S ";
+      // number = "TOO MANY #S ";
+      number = `${(runningTotal / 10 ** (theNum.length - 1)).toFixed(1)}e${
+        theNum.length - 1
+      }`;
     } else if (decimalPlaces.length == 1) {
       let numberToRound = Number(number);
       // decimalPlaces[0] +1  -the character of the .
@@ -178,8 +181,5 @@ function resetDot() {
 //
 //
 // Optional things to improve in the future:
-// Things to do: make buttons darker on hover.
-// for large numbers, 1e+24
-// for small numbers, 1e-24
+
 // add keyboard support
-// add backspace button
