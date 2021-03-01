@@ -20,19 +20,15 @@ function operate(num1, operator, num2) {
   switch (operator) {
     case "+":
       return add(num1, num2);
-    // break;
     case "-":
       return subtract(num1, num2);
-    // break;
     case "*":
       return multiply(num1, num2);
-    // break;
     case "/":
       if (num2 == 0) {
         return "DIV/0 = BAD!";
       }
       return divide(num1, num2);
-    // break;
     case "=":
       return runningTotal;
   }
@@ -42,7 +38,6 @@ function addInitialEventListeners() {
   let numbers = Array.from(document.querySelectorAll(".numbers"));
 
   numbers.forEach((e) => {
-    // console.log(e);
     e.addEventListener("click", addNumbersToScreen);
   });
 
@@ -82,11 +77,11 @@ function addNumbersToScreen(e) {
 }
 
 function populateDisplay() {
-  display.textContent = displayNumber; //  displayNumber is a string
+  display.textContent = displayNumber;
 }
 
-let lastOperator = "+"; //to hold +-*/ for later
-let runningTotal = 0; //
+let lastOperator = "+";
+let runningTotal = 0;
 let secondNumber = 0;
 
 function clickOperator(e) {
@@ -135,18 +130,10 @@ function toggleSign(e) {
 
 function checkCharLength(number) {
   if (!(number.toString().length <= 12)) {
-    // check is it a large decimal? or a large number?
-
-    //if its a large number:  maybe return an e number....or just give an error: too many #s
-
-    // if it's a decimal:
-    // cut off the extra stuff on the right
     let theNum = Array.from(number.toString().split(""));
-
-    // what's the length of the string?
     let strLength = theNum.length;
-    // is there a decimal?
     let decimalPlaces = [];
+
     for (let i = 0; i < strLength; i++) {
       if (theNum[i] == ".") {
         decimalPlaces.push(i);
@@ -154,16 +141,20 @@ function checkCharLength(number) {
     }
 
     if (decimalPlaces.length == 0) {
-      // number = "TOO MANY #S ";
       number = `${(runningTotal / 10 ** (theNum.length - 1)).toFixed(1)}e${
         theNum.length - 1
       }`;
     } else if (decimalPlaces.length == 1) {
       let numberToRound = Number(number);
-      // decimalPlaces[0] +1  -the character of the .
-      //  12 - .place     // 12-2 = 10
       let decimalPlacesToRound = 12 - (decimalPlaces[0] + 1);
-      number = Number(numberToRound.toFixed(decimalPlacesToRound));
+
+      if (decimalPlacesToRound >= 0) {
+        number = Number(numberToRound.toFixed(decimalPlacesToRound));
+      } else {
+        number = `${(runningTotal / 10 ** (decimalPlaces[0] - 1)).toFixed(1)}e${
+          decimalPlaces[0] - 1
+        }`;
+      }
     } else if (decimalPlaces > 1) {
       number = "ERROR: NaN  ";
     }
@@ -178,8 +169,3 @@ function resetDot() {
   firstDotEntered = false;
   document.getElementById("dot").addEventListener("click", addNumbersToScreen);
 }
-//
-//
-// Optional things to improve in the future:
-
-// add keyboard support
