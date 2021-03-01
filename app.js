@@ -37,17 +37,6 @@ function operate(num1, operator, num2) {
       return runningTotal;
   }
 }
-console.log(add(1, 2.1));
-console.log(operate(1, "+", 2.1));
-console.log(subtract(2.1, 1));
-console.log(operate(2.1, "-", 1));
-console.log(multiply(2.1, 2));
-console.log(operate(2.1, "*", 2));
-console.log(divide(9.3, 3));
-console.log(operate(9.3, "/", 3));
-
-// Functions that populate teh display when you clik the number buttons
-// loop through all that have a class of 'number' and add event listener
 
 function addInitialEventListeners() {
   let numbers = Array.from(document.querySelectorAll(".numbers"));
@@ -67,6 +56,7 @@ function addInitialEventListeners() {
   document.getElementById("clear").addEventListener("click", clearDisplay);
   document.getElementById("plusminus").addEventListener("click", toggleSign);
 }
+
 addInitialEventListeners();
 
 const display = document.getElementById("inner-screen");
@@ -90,10 +80,8 @@ function addNumbersToScreen(e) {
   console.log(displayNumber.length);
   populateDisplay();
 }
-function populateDisplay() {
-  // if
-  // console.log(displayNumber.length);
 
+function populateDisplay() {
   display.textContent = displayNumber; //  displayNumber is a string
 }
 
@@ -122,12 +110,8 @@ function clickOperator(e) {
       break;
     case "/":
       lastOperator = "/";
-
       break;
     case "=":
-      //remember what we did befreo like click + or -
-      //then call add() or subtact()
-
       display.textContent = checkCharLength(runningTotal);
       lastOperator = "=";
       break;
@@ -172,37 +156,30 @@ function checkCharLength(number) {
     if (decimalPlaces.length == 0) {
       number = "TOO MANY #S ";
     } else if (decimalPlaces.length == 1) {
-      let returnArray = [];
       let numberToRound = Number(number);
       // decimalPlaces[0] +1  -the character of the .
       //  12 - .place     // 12-2 = 10
       let decimalPlacesToRound = 12 - (decimalPlaces[0] + 1);
-      console.log(Number(numberToRound.toFixed(decimalPlacesToRound)));
       number = Number(numberToRound.toFixed(decimalPlacesToRound));
-
-      // for (let j = 0; j < 12; j++) {
-      //   returnArray.push(theNum[j]);
-      // }
-      // number = returnArray.join("");
     } else if (decimalPlaces > 1) {
       number = "ERROR: NaN  ";
     }
     console.log("yep");
-    //   if so: what's the array place of the decimal
-    //   does it still fit?
-    //     if so: chop off the decimals on the right and return a string
   }
   return number;
 }
 
 let firstDotEntered = false;
+
 function resetDot() {
   firstDotEntered = false;
   document.getElementById("dot").addEventListener("click", addNumbersToScreen);
 }
 //
 //
-//
+// Optional things to improve in the future:
 // Things to do: make buttons darker on hover.
 // for large numbers, 1e+24
 // for small numbers, 1e-24
+// add keyboard support
+// add backspace button

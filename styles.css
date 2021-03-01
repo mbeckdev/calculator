@@ -11,12 +11,14 @@ body {
   font-size: 62.5%;
   background-color: lightgrey;
 }
+
 h1 {
   /* border: 1px solid red; */
   margin-top: -6px;
   margin-bottom: -8px;
   /* position: absolute; */
 }
+
 #calculator {
   display: grid;
   /* grid-template-columns: 50px 50px 50px 50px; */
@@ -49,9 +51,11 @@ h1 {
 
   font-size: 2.4em;
 }
+
 #calculator > div {
   display: flex;
 }
+
 #battery {
   grid-area: battery;
   /* border: 1px solid red; */
@@ -67,6 +71,7 @@ h1 {
 #equals {
   grid-area: equals;
 }
+
 #header {
   grid-area: header;
   box-shadow: none;
@@ -108,6 +113,7 @@ h1 {
   border-left: 1px solid hsl(250, 5%, 15%);
   border-top: 1px solid hsl(250, 5%, 15%);
 }
+
 #clear {
   grid-area: clear;
 }
@@ -169,30 +175,48 @@ h1 {
   /* box-shadow: -1px -1px 0px hsl(257, 6%, 55%), 1px 1px 0px black; */
   box-shadow: -1px -1px 0px rgba(255, 255, 255, 30%), 1px 1px 0px black;
 }
+
 .btn:active {
   box-shadow: none;
 }
+
 .btn:hover {
   cursor: pointer;
 }
+
 .clear-btn {
-  background-color: rgb(91, 173, 255);
+  background-color: hsl(210, 100%, 68%);
   box-shadow: -1px -1px 0px rgba(255, 255, 255, 60%), 1px 1px 0px black;
 }
+.clear-btn:hover {
+  background-color: hsl(210, 100%, 53%);
+}
+
 .numbers {
-  background-color: #3e3c43; /*hsl(257,6%,25%)*/
+  background-color: hsl(257, 6%, 25%);
   color: white;
 }
+.numbers:hover {
+  background-color: hsl(257, 6%, 20%);
+}
+
 .operator {
-  background-color: #d7d7d7;
+  background-color: hsl(0, 0%, 84%);
   color: black;
   box-shadow: -1px -1px 0px rgba(255, 255, 255, 85%), 1px 1px 0px black;
+}
+.operator:hover {
+  background-color: hsl(0, 0%, 71%);
 }
 .other-btns {
   /* background-color: rgb(41, 123, 229); */
   background-color: hsl(257, 6%, 40%); /*279*/
   color: white;
 }
+.other-btns:hover {
+  background-color: hsl(257, 6%, 30%);
+}
+
 #inner-screen {
   /* border: 1px solid red; */
   height: 28px;
